@@ -36,8 +36,9 @@ public class InicializarDatos implements CommandLineRunner {
             String username = faker.name().username();
             String password = faker.internet().password(8, 12);
 
-            int numero = random.nextInt(3);
+
             Rol[] indice = Rol.values();
+            int numero = random.nextInt(indice.length);
             Rol valor = indice[numero];
 
 

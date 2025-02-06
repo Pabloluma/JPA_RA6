@@ -4,6 +4,7 @@ package com.hlc.usuario_uno_a_uno.servicio;
 
 import java.util.Optional;
 
+import com.hlc.usuario_uno_a_uno.entidad.enumerado.Rol;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
                 actualizado.setUsername(usuario.getUsername());
                 actualizado.setPassword(usuario.getPassword());
                 actualizado.setInformacionUsuario(usuario.getInformacionUsuario());
+                actualizado.setRol(usuario.getRol());
                 return usuarioRepositorio.save(actualizado);
             }
         }
@@ -57,6 +59,11 @@ public class UsuarioServicioImpl implements UsuarioServicio {
     @Override
     public Page<Usuario> buscarPorNombre(String nombre, Pageable pageable) {
         return usuarioRepositorio.findByUsernameContainingIgnoreCase(nombre, pageable);
+    }
+
+    @Override
+    public Page<Usuario> buscarRol(Rol rol, Pageable pageable) {
+        return usuarioRepositorio.findByRol(rol, pageable);
     }
 
 

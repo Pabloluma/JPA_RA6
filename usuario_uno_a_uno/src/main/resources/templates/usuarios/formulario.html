@@ -48,6 +48,18 @@
                 </div>
             </div>
 
+          <!--Campo Rol-->
+          <div class="mb-3">
+              <label for="rol" class="form-label">Rol</label>
+              <select id="rol" name="rol" class="form-select" th:field="*{rol}">
+                  <option th:value="${rol_}" th:text="${rol_}" th:each="rol_ : ${roles}" ></option>
+              </select>
+<!--              <input type="text" class="form-control" id="rol" th:field="*{informacionUsuario.rol}" >-->
+              <div th:if="${#fields.hasErrors('rol')}" class="text-danger">
+                  <span th:each="error : ${#fields.errors('rol')}" th:text="${error}"></span>
+              </div>
+          </div>
+
             <!-- Botones -->
             <button type="submit" class="btn btn-primary">Guardar</button>
             <a th:href="@{/usuarios}" class="btn btn-secondary">Cancelar</a>

@@ -126,7 +126,7 @@ public class UsuarioControladorTest {
 
     @Test
     void testEliminarUsuario() {
-        String view = usuarioControlador.eliminarUsuario(1L);
+        String view = usuarioControlador.eliminarUsuario(1L, model);
 
         assertEquals("redirect:/usuarios", view);
         verify(usuarioServicio).eliminarUsuario(1L);
@@ -137,7 +137,7 @@ public class UsuarioControladorTest {
         doThrow(new RuntimeException("Usuario no encontrado")).when(usuarioServicio).eliminarUsuario(99L);
 
         Exception exception = assertThrows(RuntimeException.class, () -> {
-            usuarioControlador.eliminarUsuario(99L);
+            usuarioControlador.eliminarUsuario(99L, model);
         });
 
         assertEquals("Usuario no encontrado", exception.getMessage());

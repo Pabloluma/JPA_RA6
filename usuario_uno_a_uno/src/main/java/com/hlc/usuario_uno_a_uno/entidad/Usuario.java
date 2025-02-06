@@ -39,7 +39,13 @@ public class Usuario {
         this.informacionUsuario = informacionUsuario;
         this.rol = rol;
     }
-    
+
+    public Usuario(String testuser, String password123, InformacionUsuario infoUsuario) {
+        this.username = username;
+        this.password = password;
+        this.informacionUsuario = informacionUsuario;
+    }
+
     // Getters y Setters
     public Long getId() {
         return id;
