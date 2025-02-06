@@ -34,6 +34,7 @@ public class UsuarioControlador {
         model.addAttribute("usuarios", usuarios);
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", usuarios.getTotalPages());
+        model.addAttribute("roles", Rol.values());
         return "usuarios/listar";
     }
 
@@ -112,6 +113,7 @@ public class UsuarioControlador {
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", usuarios.getTotalPages());
         model.addAttribute("nombre", nombre);
+        model.addAttribute("roles", Rol.values());
         return "usuarios/listar";
     }
 }

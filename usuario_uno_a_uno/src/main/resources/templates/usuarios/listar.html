@@ -17,11 +17,12 @@
                 <button type="submit" class="btn btn-secondary">Buscar</button>
             </div>
         </form>
-        <form th:action="@{/usuarios/filtrar}" method="get" class=" d-flex mb-3">
-            <select id="rol" name="rol" class="form-select" th:field="*{rol}">
-                <option th:value="${rol_}" th:text="${rol_}" th:each="rol_ : ${roles}" ></option>
+        <form class="d-flex mb-3" th:action="@{/usuarios/filtrar}" method="get">
+            <select id="rol" name="rol" class="form-select">
+                <option value="" disabled selected>Selecciona un rol</option>
+                <option th:value="${rol_}" th:text="${rol_}" th:each="rol_ : ${roles}"></option>
             </select>
-            <button type="submit" class="btn btn-secondary">Filtrar</button>
+            <button class="btn btn-outline-warning" type="submit">Filtrar</button>
         </form>
 
         <!-- Tabla de usuarios -->
